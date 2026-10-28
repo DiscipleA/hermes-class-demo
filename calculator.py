@@ -8,15 +8,21 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
+    """Return a / b, or None when b is zero (including floating signed zero)."""
+    if b == 0:
+        return None
     return a / b
 
-if __name__ == "__main__":
+
+def main(x=10, y=0):
+    """Print the demo result, explaining zero division without a traceback."""
     print("Simple Calculator Demo")
-    
-    x = 10
-    y = 5
-    
-    print(f"{x} + {y} = {add(x, y)}")
-    print(f"{x} - {y} = {subtract(x, y)}")
-    print(f"{x} * {y} = {multiply(x, y)}")
-    print(f"{x} / {y} = {divide(x, y)}")
+    result = divide(x, y)
+    if result is None:
+        print(f"{x} / {y} = undefined (division by zero)")
+    else:
+        print(f"{x} / {y} = {result}")
+
+
+if __name__ == "__main__":
+    main()
